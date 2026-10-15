@@ -1,1 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TeleNet Colombia | Troncales SIP, Marcador Predictivo y Blasting Telefónico</title>
+<meta name="description" content="TeleNet Colombia te conecta con el mundo: Troncales SIP, Marcador Predictivo y Blasting Telefónico compatibles con cualquier sistema de telefonía IP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1330; --bg2:#101C45; --panel:#13224F; --line:#243768;
+  --blue:#2F6BFF; --sky:#5BB8FF; --ice:#EAF2FF; --text:#DCE6FA; --muted:#9FB1D6;
+  --head:'Sora',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.65;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 
+/* Navegación */
+header{position:sticky;top:0;z-index:20;background:rgba(10,19,48,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--head);font-weight:800;font-size:1.25rem;text-decoration:none;color:#fff;letter-spacing:-.01em}
+.logo span{color:var(--sky)}
+nav ul{display:flex;gap:28px;list-style:none}
+nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem;transition:color .2s}
+nav ul a:hover{color:#fff}
+.btn{display:inline-block;background:var(--blue);color:#fff;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:999px;transition:background .2s,transform .2s;box-shadow:0 10px 30px -10px rgba(47,107,255,.8)}
+.btn:hover{background:#4C80FF;transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);box-shadow:none;color:var(--ice)}
+.btn.ghost:hover{border-color:var(--sky);background:rgba(91,184,255,.08)}
+.nav-cta{padding:10px 20px;font-size:.95rem}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:96px 0 110px;background:
+  radial-gradient(900px 500px at 85% 20%,rgba(47,107,255,.45),transparent 60%),
+  radial-gradient(600px 400px at 10% 90%,rgba(91,184,255,.18),transparent 60%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+h1{font-family:var(--head);font-weight:800;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.05;letter-spacing:-.03em;color:#fff}
+.hero p.lead{margin:24px 0 36px;font-size:1.2rem;color:var(--muted);max-width:30em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px}
+
+/* Visual: red de llamadas */
+.net{width:100%;height:auto;display:block}
+.net .ring{fill:none;stroke:var(--sky);stroke-width:1.5;opacity:.0;transform-origin:250px 250px;animation:ping 4.5s ease-out infinite}
+.net .ring:nth-child(2){animation-delay:1.5s}
+.net .ring:nth-child(3){animation-delay:3s}
+.net .link{stroke:var(--line);stroke-width:1.5;stroke-dasharray:4 6}
+.net .node{fill:var(--panel);stroke:var(--sky);stroke-width:2}
+.net .core{fill:var(--blue)}
+.net text{font-family:var(--head);font-weight:700;font-size:13px;fill:var(--ice);text-anchor:middle}
+@keyframes ping{0%{opacity:.7;transform:scale(.25)}100%{opacity:0;transform:scale(1)}}
+
+/* Servicios */
+section{padding:96px 0}
+.section-title{font-family:var(--head);font-weight:700;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15;letter-spacing:-.02em;color:#fff;max-width:18em}
+.section-sub{color:var(--muted);margin-top:16px;max-width:36em}
+
+.service{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;padding:72px 0;border-top:1px solid var(--line);align-items:start}
+.service:first-of-type{margin-top:48px}
+.service.flip{grid-template-columns:1.1fr .9fr}
+.service.flip .s-intro{order:2}
+.s-intro h3{font-family:var(--head);font-weight:700;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.15;letter-spacing:-.02em;color:#fff}
+.s-intro p{margin-top:18px;color:var(--muted)}
+.s-intro p.kicker{color:var(--sky);font-family:var(--head);font-weight:600;font-size:1.05rem}
+.fact{margin-top:28px;display:inline-flex;align-items:baseline;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px 22px}
+.fact b{font-family:var(--head);font-size:2.2rem;font-weight:800;color:var(--sky);line-height:1}
+.fact span{color:var(--text);font-size:.95rem;max-width:12em;line-height:1.35}
+.points{list-style:none;display:grid;gap:14px}
+.points li{background:linear-gradient(180deg,var(--bg2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.points li:nth-child(odd){margin-right:28px}
+.points li:nth-child(even){margin-left:28px}
+.points strong{display:block;font-family:var(--head);font-weight:700;color:#fff;margin-bottom:4px;font-size:1.05rem}
+.points p{color:var(--muted);font-size:1rem}
+.closing{margin-top:22px;font-family:var(--head);font-weight:600;color:var(--sky);font-size:1.05rem}
+.closing + .closing{margin-top:10px}
+
+/* Más servicios */
+.more{border-top:1px solid var(--line);padding-top:72px}
+.more h3{font-family:var(--head);font-weight:700;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.15;letter-spacing:-.02em;color:#fff}
+.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.more-card{background:linear-gradient(180deg,var(--bg2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:26px 24px}
+.more-card strong{display:block;font-family:var(--head);font-weight:700;color:#fff;font-size:1.15rem;margin-bottom:6px}
+.more-card a{color:var(--sky);font-weight:600;text-decoration:none}
+.more-card a:hover{text-decoration:underline}
+
+/* Compatibilidad */
+.compat{background:var(--bg2);border-block:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.chips span{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:10px 22px;font-family:var(--head);font-weight:600;color:var(--ice)}
+
+/* Imagen contact center */
+.compat-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.compat-photo{position:relative;max-width:340px;justify-self:center;width:100%}
+.compat-photo::before{content:"";position:absolute;inset:-18px;background:radial-gradient(closest-side,rgba(47,107,255,.55),transparent 75%);z-index:0}
+.compat-photo img{position:relative;z-index:1;display:block;width:100%;height:auto;border-radius:28px;border:1px solid var(--line)}
+
+/* CTA */
+.cta{text-align:center}
+.cta-box{background:linear-gradient(135deg,#1F4FD8,#2F6BFF 55%,#4FA9FF);border-radius:32px;padding:72px 32px;box-shadow:0 30px 80px -30px rgba(47,107,255,.7)}
+.cta-box h2{font-family:var(--head);font-weight:800;font-size:clamp(2rem,4.5vw,3rem);letter-spacing:-.02em;color:#fff;line-height:1.1}
+.cta-box p{margin:16px auto 32px;max-width:30em;color:#E6F0FF}
+.cta-box .btn{background:#fff;color:#0A1330;box-shadow:none}
+.cta-box .btn:hover{background:var(--ice)}
+.cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.cta-box .btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.cta-box .btn.ghost:hover{background:rgba(255,255,255,.14)}
+.social{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px}
+.social a{text-decoration:none;color:#fff;font-weight:600;font-size:.95rem;padding:9px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.45);transition:background .2s}
+.social a:hover{background:rgba(255,255,255,.16)}
+
+footer{padding:40px 0;color:var(--muted);font-size:.95rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+.foot-links{display:flex;flex-wrap:wrap;gap:18px}
+
+@media (max-width:860px){
+  nav ul{display:none}
+  .hero{padding:64px 0 72px}
+  .hero-grid,.service,.service.flip{grid-template-columns:1fr;gap:32px}
+  .service.flip .s-intro{order:0}
+  .points li:nth-child(odd),.points li:nth-child(even){margin:0}
+  section{padding:64px 0}
+  .service{padding:48px 0}
+  .more{padding-top:48px}
+  .more-grid{grid-template-columns:1fr}
+  .compat-grid{grid-template-columns:1fr;gap:40px}
+  .compat-photo{margin:0 auto}
+  .net{max-width:380px;margin:0 auto}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .net .ring{animation:none;opacity:.25;transform:scale(.7)}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Principal">
+      <a class="logo" href="#inicio">Tele<span>Net</span> Colombia</a>
+      <ul>
+        <li><a href="#troncales">Troncales SIP</a></li>
+        <li><a href="#marcador">Marcador Predictivo</a></li>
+        <li><a href="#blasting">Blasting Telefónico</a></li>
+        <li><a href="#sms">Mensajes de Texto</a></li>
+        <li><a href="#compatibilidad">Compatibilidad</a></li>
+      </ul>
+      <a class="btn nav-cta" href="#contacto">Contáctanos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Te conectamos con el mundo</h1>
+        <p class="lead">Telefonía IP para empresas y contact centers: troncales SIP, marcador predictivo y blasting telefónico, compatibles con cualquier sistema de telefonía IP.</p>
+        <div class="actions">
+          <a class="btn" href="#contacto">Solicita información</a>
+          <a class="btn ghost" href="#troncales">Ver servicios</a>
+        </div>
+      </div>
+      <svg class="net" viewBox="0 0 500 500" role="img" aria-label="Red de llamadas conectadas a la infraestructura de TeleNet Colombia">
+        <circle class="ring" cx="250" cy="250" r="230"/>
+        <circle class="ring" cx="250" cy="250" r="230"/>
+        <circle class="ring" cx="250" cy="250" r="230"/>
+        <g class="link">
+          <line x1="250" y1="250" x2="90" y2="110"/><line x1="250" y1="250" x2="420" y2="90"/>
+          <line x1="250" y1="250" x2="445" y2="300"/><line x1="250" y1="250" x2="360" y2="440"/>
+          <line x1="250" y1="250" x2="110" y2="400"/><line x1="250" y1="250" x2="55" y2="260"/>
+        </g>
+        <circle class="node" cx="90" cy="110" r="22"/><circle class="node" cx="420" cy="90" r="22"/>
+        <circle class="node" cx="445" cy="300" r="22"/><circle class="node" cx="360" cy="440" r="22"/>
+        <circle class="node" cx="110" cy="400" r="22"/><circle class="node" cx="55" cy="260" r="22"/>
+        <circle class="core" cx="250" cy="250" r="62"/>
+        <text x="250" y="246">TeleNet</text><text x="250" y="264">Colombia</text>
+      </svg>
+    </div>
+  </div>
+
+  <section id="servicios">
+    <div class="wrap">
+      <h2 class="section-title">Nuestros servicios para comunicarte mejor</h2>
+      <p class="section-sub">Infraestructura robusta, audio claro y múltiples destinos locales, nacionales e internacionales.</p>
+
+      <!-- Troncales SIP -->
+      <article class="service" id="troncales">
+        <div class="s-intro">
+          <h3>Telefonía IP: Troncales SIP</h3>
+          <p class="kicker">Lleva la telefonía de tu empresa al siguiente nivel con la Troncal SIP de TeleNet Colombia.</p>
+          <p>¿Sigues pagando facturas altas por líneas telefónicas obsoletas? Es hora de evolucionar. Nuestra Troncal SIP conecta la centralita de tu empresa directamente a internet, permitiéndote realizar y recibir múltiples llamadas simultáneas con la máxima eficiencia.</p>
+        </div>
+        <div>
+          <ul class="points">
+            <li><strong>Audio de alta definición</strong><p>Claridad de voz absoluta, sin interferencias, ruidos molestos ni llamadas caídas. Cada conversación se escucha como si estuvieras frente a frente.</p></li>
+            <li><strong>Calidad y estabilidad garantizadas</strong><p>Una infraestructura robusta que mantiene tu negocio siempre conectado y disponible para tus clientes.</p></li>
+            <li><strong>Destinos sin fronteras</strong><p>Conéctate con el mundo. Con nuestra red tienes múltiples destinos locales, nacionales e internacionales listos para marcar en cualquier momento.</p></li>
+          </ul>
+          <p class="closing">¡No dejes que una mala comunicación detenga tu negocio!</p>
+          <p class="closing">Deja atrás el cableado tradicional, reduce tus costos operativos y escala tu capacidad de llamadas en minutos.</p>
+        </div>
+      </article>
+
+      <!-- Marcador Predictivo -->
+      <article class="service flip" id="marcador">
+        <div>
+          <ul class="points">
+            <li><strong>Cero tiempo muerto</strong><p>El algoritmo elimina esperas, tonos de ocupado, líneas dañadas y contestadores automáticos. Tus agentes pasan de marcar a hablar.</p></li>
+            <li><strong>Calidad de audio y estabilidad premium</strong><p>Conectado a nuestra infraestructura telefónica de alta fidelidad, con conversaciones nítidas que mejoran la experiencia del cliente.</p></li>
+            <li><strong>Múltiples destinos en paralelo</strong><p>Gestiona miles de llamadas simultáneas hacia cualquier operador local, nacional o internacional sin perder potencia.</p></li>
+            <li><strong>Optimización de recursos</strong><p>Reduce drásticamente el costo por contacto y duplica las interacciones efectivas en cada jornada laboral.</p></li>
+          </ul>
+          <p class="closing">Convierte el tiempo de espera en ventas y soluciones.</p>
+          <p class="closing">Automatiza tu Contact Center con la tecnología más inteligente y rentable del mercado.</p>
+        </div>
+        <div class="s-intro">
+          <h3>Marcador Predictivo</h3>
+          <p class="kicker">Multiplica la productividad de tus agentes en un 300%.</p>
+          <p>¿Tus agentes pierden tiempo marcando manualmente, escuchando tonos de ocupado o cayendo en buzones de voz? El sistema calcula cuándo se liberará un asesor y realiza las llamadas por adelantado, entregándole solo las que ya contestó una persona real.</p>
+          <div class="fact"><b>300%</b><span>más productividad en tus agentes</span></div>
+        </div>
+      </article>
+
+      <!-- Blasting -->
+      <article class="service" id="blasting">
+        <div class="s-intro">
+          <h3>Blasting Telefónico</h3>
+          <p class="kicker">Llega a miles de clientes en segundos.</p>
+          <p>¿Necesitas lanzar una campaña urgente, recordar un pago o enviar una alerta masiva? Tu mensaje llega de forma automática, masiva y sin retrasos, y toda tu base de datos se contacta en tiempo récord.</p>
+          <div class="fact"><b>300</b><span>llamadas por segundo</span></div>
+        </div>
+        <div>
+          <ul class="points">
+            <li><strong>Velocidad sin competencia</strong><p>Hasta 300 llamadas simultáneas por segundo. Ideal para campañas masivas de cobranza, marketing o notificaciones urgentes.</p></li>
+            <li><strong>Audio de máxima claridad</strong><p>Tu mensaje pregrabado o dinámico se escucha con calidad impecable, para una experiencia profesional.</p></li>
+            <li><strong>Múltiples destinos al instante</strong><p>Conecta con usuarios en cualquier rincón del país o del mundo gracias a nuestra infraestructura de rutas directas.</p></li>
+            <li><strong>Efectividad garantizada</strong><p>El sistema detecta contestadores y entrega reportes en tiempo real para que midas el éxito de tu campaña.</p></li>
+          </ul>
+          <p class="closing">¡Multiplica el alcance de tu empresa hoy mismo!</p>
+          <p class="closing">Automatiza tus comunicaciones, ahorra tiempo y maximiza tus resultados con la red más rápida del mercado.</p>
+        </div>
+      </article>
+
+      <!-- Mensajes Masivos de Texto -->
+      <article class="service flip" id="sms">
+        <div>
+          <ul class="points">
+            <li><strong>Velocidad sin límites</strong><p>Envía hasta 10,000 mensajes de texto por minuto. Ideal para campañas masivas urgentes o alertas críticas en tiempo real.</p></li>
+            <li><strong>Entrega garantizada</strong><p>Llegamos a múltiples destinos y operadores móviles con conexiones directas y seguras, asegurando que tu mensaje se entregue al instante.</p></li>
+            <li><strong>Máxima efectividad</strong><p>Más del 95% de los mensajes de texto se leen en los primeros 3 minutos. No dependes de que el cliente tenga datos móviles o internet.</p></li>
+            <li><strong>Automatización total</strong><p>Integra nuestra API fácilmente en tus sistemas actuales para automatizar tus envíos las 24 horas.</p></li>
+          </ul>
+          <p class="closing">¡Conecta con miles de usuarios en un solo clic!</p>
+          <p class="closing">Comunícate de forma rápida, masiva y económica con la plataforma más potente del mercado.</p>
+        </div>
+        <div class="s-intro">
+          <h3>Mensajes Masivos de Texto</h3>
+          <p class="kicker">SMS Masivo de TeleNet Colombia: impacto inmediato en la palma de la mano de tus clientes.</p>
+          <p>El SMS sigue siendo el canal con mayor tasa de apertura del mercado. Con nuestra plataforma de SMS Masivo, puedes enviar notificaciones, alertas, códigos de verificación (OTP) y promociones directamente al celular de tus usuarios, con una velocidad extrema de hasta 10,000 SMS por minuto.</p>
+          <div class="fact"><b>10,000</b><span>SMS por minuto</span></div>
+        </div>
+      </article>
+
+      <!-- Más servicios -->
+      <div class="more" id="mas-servicios">
+        <h3>Y además</h3>
+        <div class="more-grid">
+          <div class="more-card"><strong>Central Telefónica con Módulo Call Center</strong><a href="#contacto">Solicita información</a></div>
+          <div class="more-card"><strong>Números Virtuales DID</strong><a href="#contacto">Solicita información</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="compat" id="compatibilidad">
+    <div class="wrap compat-grid">
+      <div>
+        <h2 class="section-title">Compatible con cualquier sistema de telefonía IP</h2>
+        <p class="section-sub">Conecta TeleNet Colombia con la plataforma que ya usas.</p>
+        <div class="chips">
+          <span>VICIdial</span><span>Issabel</span><span>3CX</span><span>A2Billing</span><span>FreePBX</span><span>Asterisk</span>
+        </div>
+      </div>
+      <div class="compat-photo">
+        <img src="contact-center.jpg" width="888" height="888" loading="lazy" alt="Agentes de un contact center atendiendo llamadas con diadema">
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contacto">
+    <div class="wrap">
+      <div class="cta-box">
+        <h2>Lleva tu comunicación al siguiente nivel</h2>
+        <p>Cuéntanos qué necesitas y te ayudamos a elegir el servicio ideal para tu empresa.</p>
+        <div class="cta-actions">
+          <a class="btn" href="https://wa.me/573332588618" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+          <a class="btn ghost" href="tel:+573332588618">Llámanos: +57 333 2588618</a>
+        </div>
+        <div class="social">
+          <a href="https://www.facebook.com/share/1bXyqewRh4/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://instagram.com/telenet_colombia?xtok=d3A0ZjBkZTdzbzVn" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.threads.com/@telenet_colombia" target="_blank" rel="noopener">Threads</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> TeleNet Colombia</span>
+    <span class="foot-links">
+      <a href="https://wa.me/573332588618" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.facebook.com/share/1bXyqewRh4/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://instagram.com/telenet_colombia?xtok=d3A0ZjBkZTdzbzVn" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.threads.com/@telenet_colombia" target="_blank" rel="noopener">Threads</a>
+    </span>
+    <span>Te conectamos con el mundo</span>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
